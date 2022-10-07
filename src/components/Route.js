@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import { AboutUs } from "./AboutUs";
 import BookDetails from "./BookDetails";
 import Books from "./Books";
 import ErrorElement from "./ErrorElement";
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
             loader: async ({params}) => {
                 return fetch(`https://api.itbook.store/1.0/books/${params.id}`)
             }
+        },
+        {
+          path: 'aboutUs',
+          element: <AboutUs></AboutUs>
         }
       ]
     }

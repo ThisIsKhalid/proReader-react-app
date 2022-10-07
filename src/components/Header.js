@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export const Nav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -7,8 +7,8 @@ export const Nav = () => {
     return (
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 bg-gray-100">
         <div className="relative flex items-center justify-between">
-          <a
-            href="/"
+          <Link
+            to="/"
             aria-label="Company"
             title="Company"
             className="inline-flex items-center"
@@ -31,37 +31,49 @@ export const Nav = () => {
             <span className="ml-2 text-2xl font-bold tracking-wide text-purple-600">
               proReader
             </span>
-          </a>
+          </Link>
           <ul className="items-center hidden space-x-8 lg:flex">
             <li>
-              <Link
+              <NavLink
                 to="/home"
                 aria-label="Home"
                 title="Home"
-                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                className={({ isActive }) =>
+                    isActive ? 
+                    "font-medium tracking-wide text-blue-700" :
+                    "font-medium tracking-wide text-gray-700" 
+                  }
               >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to="/books"
                 aria-label="Books"
                 title="Books"
-                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                className={({ isActive }) =>
+                    isActive ? 
+                    "font-medium tracking-wide text-blue-700" :
+                    "font-medium tracking-wide text-gray-700" 
+                  }
               >
                 Books
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <a
-                href="/"
+              <NavLink
+                to='/aboutUs'
                 aria-label="About us"
                 title="About us"
-                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                className={({ isActive }) =>
+                    isActive ? 
+                    "font-medium tracking-wide text-blue-700" :
+                    "font-medium tracking-wide text-gray-700" 
+                  }
               >
                 About us
-              </a>
+              </NavLink>
             </li>
           </ul>
           <div className="lg:hidden">
@@ -91,8 +103,8 @@ export const Nav = () => {
                 <div className="p-5 bg-white border rounded shadow-sm">
                   <div className="flex items-center justify-between mb-4">
                     <div>
-                      <a
-                        href="/"
+                      <Link
+                        to="/"
                         aria-label="Company"
                         title="Company"
                         className="inline-flex items-center"
@@ -115,7 +127,7 @@ export const Nav = () => {
                         <span className="ml-2 text-2xl font-bold tracking-wide text-purple-600">
                         proReader
                         </span>
-                      </a>
+                      </Link>
                     </div>
                     <div>
                       <button
@@ -136,34 +148,46 @@ export const Nav = () => {
                   <nav>
                     <ul className="space-y-4">
                       <li>
-                        <Link
+                        <NavLink
                             to="/home"
                             aria-label="Home"
                             title="Home"
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            className={({ isActive }) =>
+                              isActive ? 
+                              "font-medium tracking-wide text-blue-700" :
+                              "font-medium tracking-wide text-gray-700" 
+                            }
                         >
                             Home
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                      <Link
+                      <NavLink
                         to="/books"
                         aria-label="Books"
                         title="Books"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        className={({ isActive }) =>
+                          isActive ? 
+                          "font-medium tracking-wide text-blue-700" :
+                          "font-medium tracking-wide text-gray-700" 
+                        }
                       >
                         Books
-                      </Link>
+                      </NavLink>
                       </li>
                       <li>
-                        <a
-                          href="/"
-                          aria-label="About us"
-                          title="About us"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                          About us
-                        </a>
+                      <NavLink
+                        to='/aboutUs'
+                        aria-label="About us"
+                        title="About us"
+                        className={({ isActive }) =>
+                          isActive ? 
+                          "font-medium tracking-wide text-blue-700" :
+                          "font-medium tracking-wide text-gray-700" 
+                        }
+                      >
+                        About us
+                      </NavLink>
                       </li>
                     </ul>
                   </nav>
